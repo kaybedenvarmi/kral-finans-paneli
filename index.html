@@ -1,38 +1,1161 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="/">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hediye Rehberi - Her an, her kişi için mükemmel hediyeyi keşfedin.">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Hediye Rehberi">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-
   <title>Hediye Rehberi</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6368006900269736">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6368006900269736" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────── */
+    :root {
+      --cream:    #FAF6F0;
+      --warm:     #F2EAD8;
+      --gold:     #C9975A;
+      --gold-lt:  #E8C48A;
+      --gold-dk:  #9B6E38;
+      --ink:      #1C1410;
+      --ink-soft: #4A3728;
+      --blush:    #E8D5C4;
+      --rose:     #D4846A;
+      --sage:     #7A9E87;
+      --radius:   14px;
+      --shadow:   0 8px 40px rgba(28,20,16,.10);
+    }
+
+    /* ─── Reset & Base ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Google Ad Banner (Top Leaderboard 728×90 / Responsive) ─── */
+    .ad-top-bar {
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #e8ddd3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      min-height: 110px;
+    }
+    .ad-top-bar .ad-slot {
+      width: 100%;
+      max-width: 970px;
+      min-height: 90px;
+      background: linear-gradient(135deg, #f8f4ef 0%, #f0e8dc 100%);
+      border: 1.5px dashed #d4b896;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ad-top-bar .ad-slot::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(201,151,90,.04) 8px,
+        rgba(201,151,90,.04) 16px
+      );
+    }
+    .ad-top-bar .ad-label {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b09070;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      position: absolute;
+      top: 6px;
+      right: 10px;
+    }
+    .ad-top-bar .ad-placeholder-text {
+      font-size: 13px;
+      color: #b09070;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+    .ad-top-bar .ad-size-hint {
+      font-size: 11px;
+      color: #c4a882;
+      font-family: monospace;
+    }
+    /* Gerçek Google AdSense kodu buraya gelecek */
+    /* <ins class="adsbygoogle" ...></ins> */
+
+    /* ─── Sticky Nav ────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,246,240,.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--blush);
+    }
+    nav {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-logo span {
+      color: var(--gold);
+    }
+    .nav-logo .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: .02em;
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width .25s ease;
+    }
+    .nav-links a:hover { color: var(--gold-dk); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--cream) !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      transition: background .2s, transform .15s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--gold-dk) !important;
+      transform: translateY(-1px);
+    }
+    .nav-search {
+      display: flex;
+      align-items: center;
+      background: var(--warm);
+      border: 1.5px solid var(--blush);
+      border-radius: 50px;
+      padding: 7px 16px;
+      gap: 8px;
+      transition: border-color .2s;
+    }
+    .nav-search:focus-within { border-color: var(--gold); }
+    .nav-search input {
+      border: none;
+      background: transparent;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      outline: none;
+      width: 160px;
+    }
+    .nav-search input::placeholder { color: #b09878; }
+    .nav-search svg { color: #b09878; flex-shrink: 0; }
+
+    /* ─── Hero Section ──────────────────────────────────── */
+    .hero {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #fff7ee, #ffefd8);
+      border: 1px solid var(--gold-lt);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      margin-bottom: 20px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-badge::before { content: '✦'; font-size: 10px; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+      font-weight: 900;
+      color: var(--ink);
+      animation: fadeUp .6s .1s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      margin-top: 18px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      font-weight: 300;
+      max-width: 440px;
+      animation: fadeUp .6s .2s ease both;
+    }
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp .6s .3s ease both;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .03em;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(201,151,90,.35);
+      transition: transform .2s, box-shadow .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(201,151,90,.45);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1.5px solid var(--blush);
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: var(--warm);
+    }
+    .hero-stats {
+      margin-top: 44px;
+      display: flex;
+      gap: 32px;
+      animation: fadeUp .6s .4s ease both;
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 2px; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: #9a7d6a;
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+    .stat-div { width: 1px; background: var(--blush); align-self: stretch; }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      animation: fadeIn .8s .2s ease both;
+    }
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .gift-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .gift-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--gold-lt), var(--gold));
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .gift-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(28,20,16,.15);
+    }
+    .gift-card:hover::before { opacity: 1; }
+    .gift-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--ink) 0%, #2d1f14 100%);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .gift-card.featured .card-icon { font-size: 40px; }
+    .card-emoji { font-size: 32px; margin-bottom: 12px; }
+    .card-cat {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .gift-card.featured .card-title { color: var(--cream); font-size: 18px; }
+    .card-count {
+      font-size: 12px;
+      color: #9a8070;
+      font-weight: 400;
+    }
+    .gift-card.featured .card-count { color: #a0917f; }
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--rose);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 50px;
+      letter-spacing: .05em;
+    }
+    .floating-tag {
+      position: absolute;
+      background: #fff;
+      border-radius: 50px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      animation: float 3s ease-in-out infinite;
+    }
+    .floating-tag:nth-child(1) { top: -12px; right: -12px; animation-delay: 0s; }
+    .floating-tag:nth-child(2) { bottom: 20px; left: -16px; animation-delay: 1.2s; }
+
+    /* ─── Section Styles ─────────────────────────────────── */
+    section { padding: 64px 0; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .section-sub {
+      margin-top: 10px;
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    /* ─── Category Pills ─────────────────────────────────── */
+    .categories-section { background: var(--warm); }
+    .cat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .cat-pill {
+      background: #fff;
+      border: 1.5px solid var(--blush);
+      border-radius: 50px;
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-pill:hover, .cat-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+    .cat-pill .pill-emoji { font-size: 16px; }
+
+    /* ─── Gift Cards Grid ────────────────────────────────── */
+    .gifts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(28,20,16,.07);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(28,20,16,.13);
+    }
+    .product-img {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #f5ede3, #ecdcc8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      position: relative;
+    }
+    .product-img .price-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .product-img .wishlist-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .product-img .wishlist-btn:hover { transform: scale(1.15); }
+    .product-body { padding: 20px; }
+    .product-cat {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-age {
+      font-size: 12px;
+      color: #9a8070;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .product-stars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    /* ─── Mid-page Ad Banner ─────────────────────────────── */
+    .ad-mid {
+      background: var(--warm);
+      padding: 24px;
+    }
+    .ad-mid-slot {
+      max-width: 1240px;
+      margin: 0 auto;
+      min-height: 250px;
+      background: linear-gradient(135deg, #fff 0%, #faf3ea 100%);
+      border: 1.5px dashed #d4b896;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+    }
+    .ad-mid-slot .ad-label {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #b09070;
+      font-weight: 500;
+    }
+    .ad-mid-slot .ad-text {
+      font-size: 14px;
+      color: #b09070;
+      font-weight: 400;
+    }
+    .ad-mid-slot .ad-size {
+      font-size: 12px;
+      color: #c4a882;
+      font-family: monospace;
+    }
+
+    /* ─── Occasions Section ──────────────────────────────── */
+    .occasions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .occasion-card {
+      border-radius: 16px;
+      padding: 28px 22px;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .occasion-card:nth-child(1) { background: linear-gradient(135deg, #fde8e0, #f9d4c8); }
+    .occasion-card:nth-child(2) { background: linear-gradient(135deg, #e8f4ed, #d4eadb); }
+    .occasion-card:nth-child(3) { background: linear-gradient(135deg, #e8e4f8, #d8d2f0); }
+    .occasion-card:nth-child(4) { background: linear-gradient(135deg, #fef3d8, #fde8b0); }
+    .occasion-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(28,20,16,.12);
+    }
+    .occ-emoji { font-size: 36px; margin-bottom: 14px; }
+    .occ-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .occ-count {
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-weight: 400;
+    }
+    .occ-arrow {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: background .2s;
+    }
+    .occasion-card:hover .occ-arrow { background: rgba(255,255,255,.9); }
+
+    /* ─── Newsletter ─────────────────────────────────────── */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--ink) 0%, #2d1f14 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 50%, rgba(201,151,90,.15) 0%, transparent 60%);
+    }
+    .newsletter-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .newsletter-inner .section-tag { color: var(--gold-lt); }
+    .newsletter-inner .section-title { color: var(--cream); }
+    .newsletter-inner .section-sub { color: #a09080; }
+    .nl-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .nl-form input {
+      flex: 1;
+      background: rgba(255,255,255,.1);
+      border: 1.5px solid rgba(255,255,255,.15);
+      border-radius: 50px;
+      padding: 13px 22px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--cream);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .nl-form input::placeholder { color: #7a6a58; }
+    .nl-form input:focus { border-color: var(--gold-lt); }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 28px;
+    }
+    .footer-brand .nav-logo { font-size: 20px; margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: 13px;
+      color: #7a6a58;
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 13px;
+      color: #7a6a58;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #5a4a38;
+    }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 34px;
+      height: 34px;
+      background: rgba(255,255,255,.07);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .social-link:hover { background: rgba(201,151,90,.3); }
+
+    /* ─── Animations ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    /* ─── Responsive ─────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .gifts-grid { grid-template-columns: repeat(2, 1fr); }
+      .occasions-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { padding: 40px 16px 32px; }
+      .gifts-grid { grid-template-columns: 1fr; }
+      .occasions-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nl-form { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+
+  <!-- ═══ GOOGLE AD BANNER — TOP LEADERBOARD (728×90 / 970×90) ═══ -->
+  <div class="ad-top-bar">
+    <div class="ad-slot">
+      <span class="ad-label">Reklam</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6368006900269736"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ═══ HEADER / NAV ═══ -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">
+        <div class="logo-icon">🎁</div>
+        Hediye<span>Rehberi</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#kategoriler">Kategoriler</a></li>
+        <li><a href="#oneriler">Öneriler</a></li>
+        <li><a href="#vesileler">Vesileler</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#iletisim" class="nav-cta">Ücretsiz Dene</a></li>
+      </ul>
+      <div class="nav-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" placeholder="Hediye ara…">
+      </div>
+    </nav>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">2025 Hediye Koleksiyonu</div>
+        <h1>Her an için <em>mükemmel</em> hediyeyi bul</h1>
+        <p class="hero-sub">
+          Doğum günü, yıldönümü, mezuniyet ya da sıradan bir mutluluk — kime alacağını söyle,
+          biz en özel hediyeyi seçelim.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary">
+            🎯 Hediye Bul
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-secondary">
+            ✨ Önerileri Gör
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">1.200+</span>
+            <span class="stat-lbl">Hediye Fikri</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-item">
+            <span class="stat-num">48</span>
+            <span class="stat-lbl">Kategori</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-item">
+            <span class="stat-num">98%</span>
+            <span class="stat-lbl">Mutlu Kullanıcı</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-tag">🔥 Bu hafta trend</div>
+        <div class="hero-card-grid">
+          <div class="gift-card featured">
+            <div class="card-icon">💝</div>
+            <div>
+              <div class="card-cat">Editör Seçimi</div>
+              <div class="card-title">Kişiselleştirilmiş Hediye Kutuları</div>
+              <div class="card-count">320 öneri • ₺150–₺2.000</div>
+            </div>
+          </div>
+          <div class="gift-card">
+            <div class="card-badge">YENİ</div>
+            <div class="card-emoji">📚</div>
+            <div class="card-cat">Kitap & Kültür</div>
+            <div class="card-title">Okuma Tutkunları</div>
+            <div class="card-count">84 öneri</div>
+          </div>
+          <div class="gift-card">
+            <div class="card-emoji">🌿</div>
+            <div class="card-cat">Wellness</div>
+            <div class="card-title">Spa & Bakım</div>
+            <div class="card-count">112 öneri</div>
+          </div>
+        </div>
+        <div class="floating-tag" style="bottom:20px;left:-16px;top:auto;right:auto">⭐ 4.9 / 5 puan</div>
+      </div>
+    </section>
+
+    <!-- ═══ KATEGORİLER ═══ -->
+    <section class="categories-section" id="kategoriler">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Kategoriler</div>
+          <h2 class="section-title">Ne arıyorsunuz?</h2>
+          <p class="section-sub">İlgi alanına göre filtrele, anında önerilere ulaş</p>
+        </div>
+        <div class="cat-pills">
+          <div class="cat-pill active"><span class="pill-emoji">🌟</span> Tümü</div>
+          <div class="cat-pill"><span class="pill-emoji">💻</span> Teknoloji</div>
+          <div class="cat-pill"><span class="pill-emoji">🌿</span> Wellness</div>
+          <div class="cat-pill"><span class="pill-emoji">📚</span> Kitap & Sanat</div>
+          <div class="cat-pill"><span class="pill-emoji">🍳</span> Mutfak</div>
+          <div class="cat-pill"><span class="pill-emoji">👗</span> Moda</div>
+          <div class="cat-pill"><span class="pill-emoji">🎮</span> Oyun & Eğlence</div>
+          <div class="cat-pill"><span class="pill-emoji">✈️</span> Seyahat</div>
+          <div class="cat-pill"><span class="pill-emoji">🏠</span> Ev & Dekor</div>
+          <div class="cat-pill"><span class="pill-emoji">🎨</span> El Yapımı</div>
+          <div class="cat-pill"><span class="pill-emoji">🐾</span> Evcil Hayvan</div>
+          <div class="cat-pill"><span class="pill-emoji">👶</span> Çocuk</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ÖNERILEN HEDİYELER ═══ -->
+    <section id="oneriler">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Öne Çıkanlar</div>
+          <h2 class="section-title">Editörün Seçtikleri</h2>
+          <p class="section-sub">Bu ay en çok beğenilen hediye fikirleri</p>
+        </div>
+        <div class="gifts-grid">
+          <div class="product-card">
+            <div class="product-img">🎧<span class="price-tag">₺1.200+</span><div class="wishlist-btn">♡</div></div>
+            <div class="product-body">
+              <div class="product-cat">Teknoloji</div>
+              <div class="product-name">Kablosuz Gürültü Önleyici Kulaklık</div>
+              <div class="product-desc">Müzik tutkunları ve uzaktan çalışanlar için ideal, sürükleyici ses deneyimi sunar.</div>
+              <div class="product-footer">
+                <div class="product-age">👤 18–35 yaş</div>
+                <div class="product-stars">★★★★★ 4.9</div>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img" style="background: linear-gradient(135deg,#e8f4ed,#d4eadb)">🌿<span class="price-tag">₺350+</span><div class="wishlist-btn">♡</div></div>
+            <div class="product-body">
+              <div class="product-cat">Wellness</div>
+              <div class="product-name">Aromaterapi & Meditasyon Seti</div>
+              <div class="product-desc">Stresini atmak isteyen sevdiklerine özel, el yapımı mumlar ve esans yağları.</div>
+              <div class="product-footer">
+                <div class="product-age">👤 Her yaş</div>
+                <div class="product-stars">★★★★★ 4.8</div>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img" style="background: linear-gradient(135deg,#fef3d8,#fde8b0)">📓<span class="price-tag">₺180+</span><div class="wishlist-btn">♡</div></div>
+            <div class="product-body">
+              <div class="product-cat">Kırtasiye</div>
+              <div class="product-name">Kişiselleştirilmiş Deri Günlük</div>
+              <div class="product-desc">İsim kazımalı, premium deri kaplı; yazı yazmayı seven herkese anlamlı bir armağan.</div>
+              <div class="product-footer">
+                <div class="product-age">👤 16–50 yaş</div>
+                <div class="product-stars">★★★★☆ 4.7</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ MID-PAGE AD BANNER (Responsive) ═══ -->
+    <div class="ad-mid">
+      <div class="ad-mid-slot">
+        <span class="ad-label">Reklam</span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6368006900269736"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- ═══ VESİLELER ═══ -->
+    <section id="vesileler">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Vesileler</div>
+          <h2 class="section-title">Hangi özel gün için?</h2>
+          <p class="section-sub">Vesileye özel küratörlü listeler</p>
+        </div>
+        <div class="occasions-grid">
+          <div class="occasion-card">
+            <div class="occ-emoji">🎂</div>
+            <div class="occ-title">Doğum Günü</div>
+            <div class="occ-count">248 hediye fikri</div>
+            <div class="occ-arrow">→</div>
+          </div>
+          <div class="occasion-card">
+            <div class="occ-emoji">💍</div>
+            <div class="occ-title">Yıldönümü</div>
+            <div class="occ-count">136 hediye fikri</div>
+            <div class="occ-arrow">→</div>
+          </div>
+          <div class="occasion-card">
+            <div class="occ-emoji">🎓</div>
+            <div class="occ-title">Mezuniyet</div>
+            <div class="occ-count">92 hediye fikri</div>
+            <div class="occ-arrow">→</div>
+          </div>
+          <div class="occasion-card">
+            <div class="occ-emoji">🎄</div>
+            <div class="occ-title">Özel Günler</div>
+            <div class="occ-count">310 hediye fikri</div>
+            <div class="occ-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ NEWSLETTER ═══ -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-inner">
+          <div class="section-tag">Bülten</div>
+          <h2 class="section-title">Haftanın en iyi hediye fikirleri</h2>
+          <p class="section-sub">Her Cuma özenle seçilmiş 5 hediye fikri posta kutunuzda.</p>
+          <div class="nl-form">
+            <input type="email" placeholder="E-posta adresiniz…">
+            <button class="btn-primary">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">🎁 Hediye<span>Rehberi</span></div>
+          <p>Her an ve her kişi için doğru hediyeyi bulmana yardımcı oluyoruz. Binlerce küratörlü fikir, tek platformda.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Keşfet</h4>
+          <ul>
+            <li><a href="#">Tüm Kategoriler</a></li>
+            <li><a href="#">Popüler Hediyeler</a></li>
+            <li><a href="#">Yeni Gelenler</a></li>
+            <li><a href="#">Bütçeye Göre</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Şirket</h4>
+          <ul>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Kariyer</a></li>
+            <li><a href="#">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Yasal</h4>
+          <ul>
+            <li><a href="#">Gizlilik Politikası</a></li>
+            <li><a href="#">Kullanım Koşulları</a></li>
+            <li><a href="#">Çerez Politikası</a></li>
+            <li><a href="#">KVKK</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HediyeRehberi. Tüm hakları saklıdır.</span>
+        <div class="social-links">
+          <div class="social-link">𝕏</div>
+          <div class="social-link">📘</div>
+          <div class="social-link">📸</div>
+          <div class="social-link">▶️</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Category pill toggle
+    document.querySelectorAll('.cat-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+
+    // Wishlist heart toggle
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+        btn.style.color = btn.textContent === '♥' ? '#d4846a' : '';
+      });
+    });
+
+    // Scroll-reveal for cards
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = (i * 0.08) + 's';
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.product-card, .occasion-card, .gift-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+
+    // Temp fix for IntersectionObserver animation
+    const style = document.createElement('style');
+    style.textContent = '.visible { opacity: 1 !important; transform: none !important; }';
+    document.head.appendChild(style);
+  </script>
+
+  <!-- ═══ CLUSTRMaps Ziyaretçi Haritası ═══ -->
+  <div style="display:flex; justify-content:center; align-items:center; padding:20px 0 28px; background:var(--ink); border-top:1px solid rgba(255,255,255,.06);">
+    <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=C7E7AU9oW4liR4ST4eVGlgULzDpNQ0CAUTz6SlV6H2A&cl=ffffff&w=a"></script>
+  </div>
+
 </body>
 </html>
