@@ -122,6 +122,8 @@
     /* Footer */
     footer { margin-top: 120px; padding: 40px 0; border-top: 1px solid var(--border-glow); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.88rem; font-weight: 300; }
     footer a { color: var(--accent-gold); text-decoration: none; font-weight: 500; }
+    .clustrmap-wrapper { display: flex; justify-content: center; margin-top: 16px; }
+    .clustrmap-widget { width: min(170px, 100%); opacity: 0.88; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.08)); }
 
     /* Responsive */
     @media (max-width: 960px) {
@@ -159,13 +161,13 @@
     <section class="hero">
       <div>
         <div class="badge-live">
-          <span class="badge-dot"></span> AI-CURATED MATCHING SYSTEM
+          <span class="badge-dot"></span> AI TARAFINDAN HAZIRLANAN EŞLEŞTİRME SİSTEMİ
         </div>
         <h1 class="hero-h1">
           Sıradanlıktan Uzak,<br><span>Kişiye Özel Premium</span><br>Hediye Kürasyonu.
         </h1>
         <p class="hero-p">
-          Algoritmik analizlerle alıcının yaşam stilini, zevklerini ve bütçe segmentini eşleştiren dijital danışmanınızla tanışın. İlişkilerinizi kalıcı sanat eserlerine dönüştürün.
+          Algoritmik analizlerle alıcının yaşam stilini, zevklerini ve bütçe segmentini eşleştiren dijital danışmanınızla tanışın.
         </p>
         <div class="action-group">
           <button class="btn-lux btn-lux-primary" type="button" onclick="openApp()">Deneyimi Başlat</button>
@@ -176,12 +178,12 @@
       <div class="hero-display">
         <div class="glass-card" onclick="openApp()">
           <span class="card-icon">💎</span>
-          <h3>Hyper-Custom Tailoring</h3>
+          <h3>Güçlü Özelik Analizi</h3>
           <p>Alıcının ilgi alanlarını milimetrik filtrelerden geçirerek sadece ona hitap eden nokta atışı alternatif kümesini optimize eder.</p>
         </div>
         <div class="glass-card" onclick="openApp()">
           <span class="card-icon">👑</span>
-          <h3>Premium Brand Network</h3>
+          <h3>Premium Marka Ağı</h3>
           <p>Amazon entegrasyonuyla beslenen lüks, modern ve tescilli hediye havuzuna saniyeler içinde doğrudan erişim konforu.</p>
         </div>
       </div>
@@ -208,17 +210,17 @@
         <div class="glass-card" onclick="openApp()">
           <span class="card-icon">🌹</span>
           <h3>Romantizm & Sanat</h3>
-          <p>Bağ kuran, incelikle düşünülmüş ve duygu haritası yüksek premium jestler.</p>
+          <p>İncelikle düşünülmüş ve duygu haritası yüksek premium jestler önerir.</p>
         </div>
         <div class="glass-card" onclick="openApp()">
           <span class="card-icon">⏳</span>
           <h3>Zamanın Ötesinde</h3>
-          <p>Annelere ve babalara özel; zarafet ve fonksiyonelliği bir arada sunan tasarımlar.</p>
+          <p>Annelere ve babalara özel; seçkin seçenekler sunan uygulama.</p>
         </div>
         <div class="glass-card" onclick="openApp()">
           <span class="card-icon">📐</span>
           <h3>Mimarî & Yaşam</h3>
-          <p>Yeni ev veya ofis aurasını kökten değiştirecek lüks dekorasyon objeleri.</p>
+          <p>Yeni ev veya ofis aurasını kökten değiştirecek dekorasyon önerileri sunar.</p>
         </div>
       </div>
     </section>
@@ -257,6 +259,11 @@
       <span>Engineered for flawless gifting experiences.</span>
       <a href="#" onclick="event.preventDefault();">Exclusive Support</a>
     </footer>
+    <div class="clustrmap-wrapper">
+      <div class="clustrmap-widget">
+        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=C7E7AU9oW4liR4ST4eVGlgULzDpNQ0CAUTz6SlV6H2A&cl=ffffff&w=a"></script>
+      </div>
+    </div>
   </div>
 
   <script>
